@@ -25,7 +25,7 @@ namespace MagicVilla.Controllers
         }
 
         [HttpPost]
-        public ActionResult<VillaDto> CreateVilla([FromBody]VillaDto villa)
+        public ActionResult<VillaDto> CreateVilla([FromBody]VillaCreateDto villa)
         {
 
 
@@ -43,7 +43,7 @@ namespace MagicVilla.Controllers
              _dbcontext.Villas.Add(model);
             _dbcontext.SaveChanges();
 
-            return CreatedAtRoute("GetVilla", new {id= villa.Id}, villa);
+            return CreatedAtRoute("GetVilla",new { id= model.Id}, villa);
         }
 
         [HttpGet]
@@ -82,7 +82,7 @@ namespace MagicVilla.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateVilla(int id, [FromBody] VillaDto villadto) 
+        public IActionResult UpdateVilla(int id, [FromBody] VillaUpdateDto villadto) 
         { 
 
             if(villadto== null || id!= villadto.Id) { return BadRequest(ModelState); }
