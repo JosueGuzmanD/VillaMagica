@@ -5,13 +5,13 @@ using System.Linq.Expressions;
 
 namespace MagicVilla.Repositorio
 {
-    public class Repositorio<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
 
         private readonly ApplicationDbContext  _context;
         internal DbSet<T> DbSet;
 
-        public Repositorio(ApplicationDbContext context)
+        public Repository(ApplicationDbContext context)
         {
             _context = context;
             this.DbSet = _context.Set<T>();

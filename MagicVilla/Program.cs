@@ -1,5 +1,7 @@
 using MagicVilla;
 using MagicVilla.Datos;
+using MagicVilla.Repositorio;
+using MagicVilla.Repositorio.IRepositorio;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
@@ -19,6 +21,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(option=>
 { 
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
+builder.Services.AddScoped<IVillaNumberRepository, VillaNumberRepository>();
+
 
 var app = builder.Build();
 

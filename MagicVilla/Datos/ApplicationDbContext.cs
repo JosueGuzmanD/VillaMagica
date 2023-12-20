@@ -12,6 +12,7 @@ namespace MagicVilla.Datos
         }
 
         public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> villaNumbers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
