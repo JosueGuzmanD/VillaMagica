@@ -90,17 +90,8 @@ namespace MagicVilla.Controllers
             var villa= _dbcontext.Villas.FirstOrDefault(villadto=>villadto.Id==id);
             if (villa==null) {  return NotFound(); }
 
-            var model = new Villa()
-            {
-                VillaName = villa.VillaName,
-                Details = villa.Details,
-                Ocuppants = villa.Ocuppants,
-                SquareMeters = villa.SquareMeters,
-                Amenidad = villa.Amenidad,
-                Price = villa.Price,
-                ImagenUrl = villa.ImagenUrl
-            };
 
+            var model = _mapper.Map<Villa>(villadto);
 
             _dbcontext.Villas.Update(model);
             _dbcontext.SaveChanges();
