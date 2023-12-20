@@ -1,3 +1,4 @@
+using MagicVilla;
 using MagicVilla.Datos;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
@@ -12,6 +13,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 builder.Services.AddDbContext<ApplicationDbContext>(option=>
 { 
